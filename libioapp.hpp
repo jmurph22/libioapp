@@ -17,7 +17,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define IOAPP_H
 
 namespace ioapp {
-	
+	void ioapp (const std::filesystem::path p, std::function<void(std::filesystem::path)> f, bool recursive=false, bool debug=false, std::filesystem::directory_options declared_options=std::filesystem::directory_options::none, unsigned depth=0, unsigned NextDepth=0);
+
+	class ProcessArgs {
+	private:
+	public:
+		std::vector<std::string> Paths;
+		std::vector<std::string> Flags;
+		ProcessArgs(const int &argc, char* argv[], bool unique=false);
+	};
 }
 
 #endif

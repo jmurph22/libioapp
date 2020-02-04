@@ -9,4 +9,7 @@ install:
 	mkdir -p /usr/include/
 	install -m 755 libioapp.hpp /usr/include/
 clean:
-	rm *.o *.so
+	rm *.o *.so *.out
+
+example: 
+	g++ examples.cpp -std=c++17 -Os -lioapp -o examples.out
