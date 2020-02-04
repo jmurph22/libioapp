@@ -28,7 +28,7 @@ int main(int argc, char* argv[])
 	*/
 	ioapp::ProcessArgs myProcessArgs(argc,argv);
 
-	for(const auto & arg : myProcessArgs.Paths)
+	for(const std::string &arg : myProcessArgs.Paths)
 	{
 		ioapp::ioapp(std::filesystem::path(arg), [](std::filesystem::path p) {
 			std::cout << p.string() << std::endl;
@@ -41,7 +41,7 @@ int main(int argc, char* argv[])
 	Basic example but recursive.
 	Second arg is recursive toggle.
 	*/
-	for(const auto & arg : myProcessArgs.Paths)
+	for(const std::string &arg : myProcessArgs.Paths)
 	{
 		ioapp::ioapp(std::filesystem::path(arg), [](std::filesystem::path p) {
 			std::cout << p.string() << std::endl;
@@ -54,7 +54,7 @@ int main(int argc, char* argv[])
 	Basic example with debug output
 	Third arg is debug print toggle.
 	*/
-	for(const auto & arg : myProcessArgs.Paths)
+	for(const std::string &arg : myProcessArgs.Paths)
 	{
 		ioapp::ioapp(std::filesystem::path(arg), [](std::filesystem::path p) {
 			std::cout << p.string() << std::endl;
@@ -64,7 +64,7 @@ int main(int argc, char* argv[])
 	putchar('\n');
 
 	//Example of setting std::filesystem::directory_options for the inner library code.
-	for(const auto & arg : myProcessArgs.Paths)
+	for(const std::string &arg : myProcessArgs.Paths)
 	{
 		ioapp::ioapp(std::filesystem::path(arg), [](std::filesystem::path p) {
 			std::cout << p.string() << std::endl;
@@ -77,7 +77,7 @@ int main(int argc, char* argv[])
 	Example of setting the depth of a function.
 	//This dictates how far down the recursion will go.
 	*/
-	for(const auto & arg : myProcessArgs.Paths)
+	for(const std::string &arg : myProcessArgs.Paths)
 	{
 		ioapp::ioapp(std::filesystem::path(arg), [](std::filesystem::path p) {
 			std::cout << p.string() << std::endl;
@@ -93,14 +93,14 @@ int main(int argc, char* argv[])
 
 	printf("Paths:\n");
 
-	for(const auto &p : myProcessArgs.Paths)
+	for(const std::string &p : myProcessArgs.Paths)
 	{
 		std::cout << p << std::endl;
 	}
 
 	printf("\nFlags:\n");
 
-	for(const auto &f : myProcessArgs.Flags)
+	for(const std::string &f : myProcessArgs.Flags)
 	{
 		std::cout << f << std::endl;
 	}
