@@ -105,5 +105,27 @@ int main(int argc, char* argv[])
 		std::cout << f << std::endl;
 	}
 
+	putchar('\n');
+
+	/*
+	Example of flags argument with offset argument.
+	This is important for avoiding argv[0] processing.
+	*/
+	ioapp::ProcessArgs offsetProcessArgs(argc,argv,false,1);
+
+	printf("Offset:\nPaths:\n");
+
+	for(const std::string &p : offsetProcessArgs.Paths)
+	{
+		std::cout << p << std::endl;
+	}
+
+	printf("\nFlags:\n");
+
+	for(const std::string &f : offsetProcessArgs.Flags)
+	{
+		std::cout << f << std::endl;
+	}
+
 	return 0;
 }
