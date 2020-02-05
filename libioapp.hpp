@@ -24,7 +24,7 @@ namespace ioapp {
 	public:
 		std::vector<std::string> Paths;
 		std::vector<std::string> Flags;
-		ProcessArgs(const int &argc, char* argv[], bool unique=false);
+		ProcessArgs(const int &argc, char* argv[], bool unique=false, int offset=0);
 	};
 }
 

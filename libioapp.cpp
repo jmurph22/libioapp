@@ -75,19 +75,30 @@ namespace ioapp {
 		}
 	}
 
-	ProcessArgs::ProcessArgs(const int &argc, char* argv[], bool unique)
+	ProcessArgs::ProcessArgs(const int &argc, char* argv[], bool unique, int offset)
 	{
-		for(int arg_counter = 0; arg_counter < argc; arg_counter++)
+		//Ensure offset is less than agc
+		if(offset < argc)
 		{
-			if(std::filesystem::exists(argv[arg_counter]))
+			//Go through argv
+			for(int arg_counter = offset; arg_counter < argc; arg_counter++)
 			{
-				this->Paths.push_back(argv[arg_counter]);
-			}
+				if(std::filesystem::exists(argv[arg_counter]))
+				{
+					this->Paths.push_back(argv[arg_counter]);
+				}
 
-			else
-			{
-				this->Flags.push_back(argv[arg_counter]);
+				else
+				{
+					this->Flags.push_back(argv[arg_counter]);
+				}
 			}
+		}
+
+		else
+		{
+			std::cerr << "offset greater than or equal to argc in ProcessArgs()\n";
+			exit(1);
 		}
 	}
 }
